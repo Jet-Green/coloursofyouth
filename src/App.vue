@@ -42,6 +42,7 @@ export default {
   data: () => ({
     routes: router.options.routes,
     current: 0,
+    inMove: false,
   }),
   mounted() {
     this.addListeners();
@@ -96,11 +97,27 @@ export default {
         router.push(this.routes[this.current].path);
       }
     },
-    touchStart: function (e) {
-      console.log(e);
+    touchStart(e) {
+      this.touchStartY = e.touches[0].clientY;
     },
-    touchMove: function (e) {
-      console.log(e);
+    touchMove(e) {
+      if (this.inMove) return false;
+      console.log(this.current);
+      const currentY = e.touches[0].clientY;
+      if (this.touchStartY < currentY) {
+        this.current -= 1;
+        this.correctCurrent();
+        this.inMove = true;
+        router.push(this.routes[this.current].path);
+      } else {
+        this.current += 1;
+        this.correctCurrent();
+        this.inMove = true;
+        router.push(this.routes[this.current].path);
+      }
+      this.touchStartY = 0;
+      setTimeout(() => (this.inMove = false), 500);
+      return false;
     },
     addListeners: function () {
       window.addEventListener("wheel", this.handleMouseWheelDOM); // Mozilla Firefox
