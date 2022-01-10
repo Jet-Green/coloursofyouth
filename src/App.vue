@@ -27,8 +27,8 @@
     </v-app-bar> -->
 
     <v-main>
-      <transition name="page" mode="out-in">
-        <router-view @update="onUpdate" />
+      <transition :duration="500" name="fade" mode="out-in">
+        <router-view />
       </transition>
     </v-main>
   </v-app>
@@ -55,6 +55,7 @@ export default {
     handleMouseWheelDOM: function (e) {
       // console.log(this.current);
       let c = document.getElementById("container");
+      if (this.inMove) return false;
       if (window.innerHeight == c.scrollHeight) {
         if (e.deltaY < 0) {
           this.current -= 1;
@@ -62,21 +63,27 @@ export default {
           this.current += 1;
         }
         this.correctCurrent();
+        this.inMove = true;
         router.push(this.routes[this.current].path);
       } else if (e.deltaY > 0) {
         if (window.innerHeight + window.pageYOffset == c.scrollHeight) {
           this.current += 1;
           this.correctCurrent();
+          this.inMove = true;
           router.push(this.routes[this.current].path);
         }
       } else {
         this.current -= 1;
         this.correctCurrent();
+        this.inMove = true;
         router.push(this.routes[this.current].path);
       }
+      setTimeout(() => (this.inMove = false), 500);
+      return false;
     },
     handleMouseWheel: function (e) {
       let c = document.getElementById("container");
+      if (this.inMove) return false;
       if (window.innerHeight == c.scrollHeight) {
         if (e.deltaY < 0) {
           this.current -= 1;
@@ -84,18 +91,23 @@ export default {
           this.current += 1;
         }
         this.correctCurrent();
+        this.inMove = true;
         router.push(this.routes[this.current].path);
       } else if (e.deltaY > 0) {
         if (window.innerHeight + window.pageYOffset == c.scrollHeight) {
           this.current += 1;
           this.correctCurrent();
+          this.inMove = true;
           router.push(this.routes[this.current].path);
         }
       } else {
         this.current -= 1;
         this.correctCurrent();
+        this.inMove = true;
         router.push(this.routes[this.current].path);
       }
+      setTimeout(() => (this.inMove = false), 500);
+      return false;
     },
     touchStart(e) {
       this.touchStartY = e.touches[0].clientY;

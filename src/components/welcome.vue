@@ -2,6 +2,7 @@
   <div id="container">
     <v-img
       height="100vh"
+      :eager="true"
       class="align-center"
       src="../assets/pages/welcomebackground.png"
     >
