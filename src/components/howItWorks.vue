@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-img
-      height="110vh"
+      height="100vh"
       class="align-center"
       src="../assets/pages/justlogo.png"
     >

@@ -55,6 +55,8 @@ export default {
     calculateSectionOffsets() {
       let sections = document.getElementsByTagName("section");
       let length = sections.length;
+      console.log(sections);
+      console.log(window.innerHeight);
       for (let i = 0; i < length; i++) {
         let sectionOffset = sections[i].offsetTop;
         this.offsets.push(sectionOffset);
