@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="container">
     <v-img
       height="100vh"
       class="align-center"

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id="container">
     <v-img
-      height="130vh"
+      height="100vh"
       class="align-center"
       src="../assets/pages/welcomebackground.png"
     >
