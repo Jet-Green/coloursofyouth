@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="container">
     <v-img
       height="100vh"
       class="align-center"
@@ -12,6 +12,10 @@
 <script>
 export default {
   name: "justLogo",
+  mounted() {
+    let c = document.getElementById("container").scrollHeight;
+    this.$emit("update", c);
+  },
 };
 </script>
 

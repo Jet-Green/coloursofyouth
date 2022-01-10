@@ -27,17 +27,25 @@
     </v-app-bar> -->
 
     <v-main>
-      <router-view />
+      <router-view @update="onUpdate" v-scroll="onScroll" />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import router from "./router/index";
 export default {
   name: "App",
 
   data: () => ({
-    //
+    routes: router.options.routes,
   }),
+  methods: {
+    onUpdate: function (c) {
+      console.log(c);
+      console.log(this.routes);
+    },
+    onScroll: function (e) {},
+  },
 };
 </script>
