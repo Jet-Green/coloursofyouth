@@ -1,7 +1,7 @@
 <template>
   <div id="container">
     <v-img
-      height="110vh"
+      height="100vh"
       :eager="true"
       class="align-center"
       src="../assets/pages/whoAreWe.png"

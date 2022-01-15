@@ -7,7 +7,7 @@
       src="../assets/pages/welcomebackground.png"
     >
       <p class="text-h4 text-md-h2 font-weight-medium text-center">
-        Welcome to ColoursOfYouth Website
+        Welcome to Colours Of Youth Website
       </p>
     </v-img>
   </div>
@@ -19,5 +19,5 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 </style>

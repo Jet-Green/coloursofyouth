@@ -27,9 +27,7 @@
     </v-app-bar> -->
 
     <v-main>
-      <transition :duration="500" name="fade" mode="out-in">
-        <router-view />
-      </transition>
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -44,104 +42,7 @@ export default {
     current: 0,
     inMove: false,
   }),
-  mounted() {
-    this.addListeners();
-  },
-  methods: {
-    onUpdate: function (c) {
-      // console.log(c);
-      // console.log(this.routes);
-    },
-    handleMouseWheelDOM: function (e) {
-      // console.log(this.current);
-      let c = document.getElementById("container");
-      if (this.inMove) return false;
-      if (window.innerHeight == c.scrollHeight) {
-        if (e.deltaY < 0) {
-          this.current -= 1;
-        } else {
-          this.current += 1;
-        }
-        this.correctCurrent();
-        this.inMove = true;
-        router.push(this.routes[this.current].path);
-      } else if (e.deltaY > 0) {
-        if (window.innerHeight + window.pageYOffset == c.scrollHeight) {
-          this.current += 1;
-          this.correctCurrent();
-          this.inMove = true;
-          router.push(this.routes[this.current].path);
-        }
-      } else {
-        this.current -= 1;
-        this.correctCurrent();
-        this.inMove = true;
-        router.push(this.routes[this.current].path);
-      }
-      setTimeout(() => (this.inMove = false), 500);
-      return false;
-    },
-    handleMouseWheel: function (e) {
-      let c = document.getElementById("container");
-      if (this.inMove) return false;
-      if (window.innerHeight == c.scrollHeight) {
-        if (e.deltaY < 0) {
-          this.current -= 1;
-        } else {
-          this.current += 1;
-        }
-        this.correctCurrent();
-        this.inMove = true;
-        router.push(this.routes[this.current].path);
-      } else if (e.deltaY > 0) {
-        if (window.innerHeight + window.pageYOffset == c.scrollHeight) {
-          this.current += 1;
-          this.correctCurrent();
-          this.inMove = true;
-          router.push(this.routes[this.current].path);
-        }
-      } else {
-        this.current -= 1;
-        this.correctCurrent();
-        this.inMove = true;
-        router.push(this.routes[this.current].path);
-      }
-      setTimeout(() => (this.inMove = false), 500);
-      return false;
-    },
-    touchStart(e) {
-      this.touchStartY = e.touches[0].clientY;
-    },
-    touchMove(e) {
-      if (this.inMove) return false;
-      console.log(this.current);
-      const currentY = e.touches[0].clientY;
-      if (this.touchStartY < currentY) {
-        this.current -= 1;
-        this.correctCurrent();
-        this.inMove = true;
-        router.push(this.routes[this.current].path);
-      } else {
-        this.current += 1;
-        this.correctCurrent();
-        this.inMove = true;
-        router.push(this.routes[this.current].path);
-      }
-      this.touchStartY = 0;
-      setTimeout(() => (this.inMove = false), 500);
-      return false;
-    },
-    addListeners: function () {
-      window.addEventListener("wheel", this.handleMouseWheelDOM); // Mozilla Firefox
-      window.addEventListener("mousewheel", this.handleMouseWheel); // Other browsers
-      window.addEventListener("touchstart", this.touchStart); // mobile devices
-      window.addEventListener("touchmove", this.touchMove);
-    },
-    moveUp: function () {},
-    correctCurrent: function () {
-      if (this.current < 0) this.current = this.routes.length - 1;
-      if (this.current > this.routes.length - 1) this.current = 0;
-    },
-  },
+  mounted() {},
+  methods: {},
 };
 </script>
