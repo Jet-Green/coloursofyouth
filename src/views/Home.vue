@@ -1,10 +1,15 @@
 <template>
   <div>
     <welcome />
+    <div style="height: 4vh; background-color: white"></div>
     <justLogo />
+    <div style="height: 4vh; background-color: white"></div>
     <whoAreWe />
+    <div style="height: 4vh; background-color: white"></div>
     <purpose />
+    <div style="height: 4vh; background-color: white"></div>
     <aboutUs />
+    <div style="height: 4vh; background-color: white"></div>
     <howItWorks />
   </div>
 </template>
