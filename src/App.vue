@@ -27,15 +27,23 @@
         </v-tabs>
       </template>
       <!-- <div class="d-flex d-sm-none"></div> -->
-      <div class="ml-5">
+      <div class="ml-5 d-flex">
         <a
           href="https://www.instagram.com/coloursofyouthorg/"
           target="_blank"
           style="text-decoration: none"
+          class="mr-5"
         >
           <v-icon icon="mdi-instagram" color="" class="r">
             mdi-instagram
           </v-icon>
+        </a>
+        <a
+          href="mailto:coloursofyouthorg@gmail.com"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <v-icon icon="mdi-gmail" color="" class="r"> mdi-gmail </v-icon>
         </a>
       </div>
     </v-app-bar>
