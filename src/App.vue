@@ -1,12 +1,13 @@
 <template>
   <v-app>
-    <v-navigation-drawer fixed temporary v-model="drawer" app>
+    <v-navigation-drawer fixed temporary v-model="drawer" app color="#FFD184">
       <v-list nav>
         <!-- active-class="deep-purple--text text--accent-4" -->
         <v-list-item-group>
           <v-list-item v-for="(item, key) in routes" :key="key">
             <v-list-item-content @click="routeTo(item.path)">
-              <v-list-item-title v-text="item.name"></v-list-item-title>
+              <v-list-item-title class="font-weight-medium" v-text="item.name">
+              </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
