@@ -1,19 +1,5 @@
-# coloursofyouth
+# Colours Of Youth
+## Colours Of Youth itself is a non-profit organization that encourages youth from all around the world to get together and share their vision to make a good impact on the world. 
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Link to the website
+https://coloursofyouth.org
